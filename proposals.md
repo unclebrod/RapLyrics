@@ -16,13 +16,13 @@ High Level Description
 * The idea is to make a model that will predict a dog's breed based on a picture of it.
 
 Your Approach
-I think I would have to use neural networks for image prediction.
+* I think I would have to use neural networks for image prediction.
 
 How will people interact with your work
-Some type of interactive app like a Flask dashboard would be cool. People could upload dog images and the machine spit out a guess.
+* Some type of interactive app like a Flask dashboard would be cool. People could upload dog images and the machine spit out a guess.
 
 What are your data sources
-https://www.kaggle.com/c/dog-breed-identification is a site I found. This could also be gathered from Google Images perhaps?
+* https://www.kaggle.com/c/dog-breed-identification is a site I found. This could also be gathered from Google Images perhaps?
 
 # 3 - What Does a Grammy-Award Winning Album Sound Like?
 High Level Description
