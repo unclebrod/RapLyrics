@@ -10,11 +10,38 @@ My goals for this project were to build my skills in natural language processing
 # Data
 All data was scraped from [Genius](https://www.genius.com) using [lyricsgenius](https://github.com/johnwmillr/LyricsGenius), a Python client for the Genius.com API. In its entirety, I collected information on 28,816 songs (this data include artist name, song title, album, producer, release data, URL, and lyrics). I pulled all songs available from these artists on Genius. After working to sift through noise (including fake songs, incomplete snippets, live versions, interviews, social media postings, and excerpts), this was reduced to 26,188 songs. Most songs contained 400-600 words. When I created my supervised learning models, I used the songs for which I had release dates (18,470 in total). These songs were collected from 100 artists, ranging from early pioneers like Slick Rick, Run-DMC, and Public Enemy, to more recent artists like Drake, 2 Chainz, and Migos.
 
-# Exploratory Data Analysis
+# Exploratation
+Prior to any word processing, I explored word counts in lyrics by artists. What I found is that on average, most rap songs sit at around 500 words total and around 250 words that are unique.
+![Total counts](img/totalwordcount.png)
+![Unique counts](img/uniquewordcount.png)
 
-# Results
+Expanding from this, I also compared artists on these word counts. For example, we can see that Jay-Z & Nas, former rivals, have very similar counts across all of their lyrics. Similarly, so do 2Pac and Biggie. On the other hand, we see that the collective Wu-Tang Clan are a bit more verbose than the minimalistic Chief Keef.
+![Jay and Nas](img/word_counts_JAYZ_Nas.png)
+![Pac and Big](img/word_counts_Pac_TheNotoriousBIG.png)
+![Wu-Tang and Chief Keef](img/word_counts_WuTangClan_ChiefKeef.png)
 
-# Other Factors to Consider
+I created a custom tokenizer using [SpaCy](https://spacy.io/), and in the process I looked into some of its capabilities. I made a histogram for the frequency at which 2 Chainz uses various parts of speech.
+![2 Chainz POS](img/pos_2Chainz.png)
+
+Using the aforementioned tokenizer, I went through several artists' discographies and looked through their most used words. I looked at Mac Miller and Missy Elliott, who despite being stylistically different artists from different eras, shared a bit in common in terms of their vocabulary. Both used "know", "come', and "love" in abundance. Mac often spoke to "feel," "good", and "life," whereas Missy was very self-referential (and for good reason - in her peak she was a larger than life personaliy).
+![Mac Words](img/most_common_MacMiller)
+![Missy Words](img/most_common_MissyElliott)
+
+# Supervised Learning
+I created a binary classifier that would predict if a song was made in the year 2000 or earlier, or if it was made post-2000. In terms of song counts, 3018 songs were in the year 2000 or earlier, and 15385 were post-2000. My tokenizer was custom built using SpaCy's lemmatizing capabilities (stopwords included its standard words, ad-libs, vocalizations, and most curse words I could remember), and vectorization was completed using Sci-Kit Learn. To this end, I did a lot of exploration of ways to account for this imbalance, including tweaking model parameters and using imbalanced-learn to undersample the majority class. In terms of scoring metrics, I placed a priority on precision, recall, and training speed. After testing models such as gradient boosting, logistic regression, and naive Bayes, the model that consistently performed best was a [Balanced Random Forest Classifer](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.ensemble.BalancedRandomForestClassifier.html) with 100 trees and a maximum deph of 10. It's cross-validated scores were a <2 second fit time, 84.5% accuracy, 95.9% precision, and 85.0% recall.
+![ROC](img/rf_roc.png)
+![Confusion Matrix](img/conf_matrix.png)
+
+I observed the results my model got wrong, and unsurprisingly most misses were songs from around 2000. Interestingly, 2Pac songs were disproportionately missed (he passed in '96). I'd wager that this is likely due either to the way 2Pac songs have been kept alive post-2000 through sampling or to his forward-thinking themes.
+
+# Unsupervised Learning
+I performed non-negative matrix factorization on each the pre- and post-2000 splits to see what type of themes machine learning could discover.
+
+**2000 and before**
+| Test |
+| Test |
+
+**Post-2000**
 
 # Technologies
 * Python (including Seaborn, Matplotlib, Pandas, Numpy, Scikit-learn, SpaCy, and Imbalanced-learn)
