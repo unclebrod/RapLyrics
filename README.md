@@ -36,10 +36,10 @@ I observed the results my model got wrong, and unsurprisingly most misses were s
 
 # Unsupervised Learning
 I performed non-negative matrix factorization on each the pre- and post-2000 splits to see what type of themes machine learning could discover. Note that I did attempt to clean up bad language, but one should never underestimate how any expletives there are and the myriad ways they can be spelled. <br/>
-![NMF pre-2000](img/nmf_pre.png)
-![NMF post-2000](img/nmf_post.png)
+![NMF pre-2000](img/nmf_pre.PNG)
+![NMF post-2000](img/nmf_post.PNG)
 
-Notable are the first concepts in each, which grouped together words that are largely associated simply with living. In fact, I'd say this is what drives most rap. Its the genre's commitment to speak to the ups and downs associated with life that have always mesmerized me. We also see similar themes of love/girls, hustling, braggadocio, and street life. Two of the most prolific artists in the game, Snoop Dogg and Gucci Mane, got their own concepts presumably from their sheer volume both in solo works and in collaborations with others.
+Notable are the first concepts in each, which grouped together words that are largely associated simply with living. In fact, I'd say this is what drives most rap. It is the genre's commitment to speaking to the ups and downs associated with life that have always mesmerized me. We also see similar themes of love/girls, hustling, braggadocio, and street life. Two of the most prolific artists in the game, Snoop Dogg and Gucci Mane, got their own concepts presumably from their sheer volume both in solo works and in collaborations with others.
 
 # Technologies
 * Python (including Seaborn, Matplotlib, Pandas, Numpy, Scikit-learn, SpaCy, and Imbalanced-learn)
