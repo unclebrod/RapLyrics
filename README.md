@@ -32,7 +32,7 @@ I created a binary classifier that would predict if a song was made in the year 
 ![ROC](img/rf_roc.png)
 ![Confusion Matrix](img/conf_matrix.png)
 
-I observed the results my model got wrong, and unsurprisingly most misses were songs from around 2000. Interestingly, 2Pac songs were disproportionately missed (he passed in '96). I'd wager that this is likely due either to the way 2Pac songs have been kept alive post-2000 through sampling or to his forward-thinking themes.
+I observed the results my model got wrong, and unsurprisingly most misses were songs from around 2000. Interestingly, 2Pac songs were disproportionately missed (he passed in '96). I'd wager that this is likely due either to the way 2Pac songs have been kept alive post-2000 through sampling or to his forward-thinking themes. I also looked into the words with the highest average Gini, and notable among them were "rhyme," "mc," "crew," "funky," and "money."
 
 # Unsupervised Learning
 I performed non-negative matrix factorization on each the pre- and post-2000 splits to see what type of themes machine learning could discover. Note that I did attempt to clean up bad language, but one should never underestimate how any expletives there are and the myriad ways they can be spelled. <br/>
