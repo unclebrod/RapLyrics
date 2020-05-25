@@ -1,4 +1,4 @@
-# An Analysis of Rap Lyrics
+# Rap Lyrics: Using Natural Language Processing to Explore Song
 The goal of this project was to explore rap lyrics, gathered from 100 rappers from the early 1980s to present day, using natural language processing. I explored both supervised and unsupervised learning, as well as a number of visuals.
 
 # Background & Inspiration
